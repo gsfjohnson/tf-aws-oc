@@ -252,6 +252,6 @@ resource "aws_route53_record" "www" {
 
 ## Output
 
-output "aws_spot_instance_request_opencart" {
-  value = "${aws_spot_instance_request.opencart}"
+output "aws_spot_instance_request.opencart.public_dns" {
+  value = "${aws_spot_instance_request.opencart.public_ip}"
 }

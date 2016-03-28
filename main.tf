@@ -2,6 +2,7 @@
 
 variable "aws_tag_owner" {
   description = "Instance owner"
+  default = "root"
 }
 
 variable "aws_tag_environment" {

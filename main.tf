@@ -127,7 +127,7 @@ variable "mysql_password" {
 }
 
 resource "template_file" "user_data" {
-  template = "${path.module}/templates/user-data.tpl.sh"
+  template = "${file("${path.module}/templates/user-data.tpl.sh")}"
 
   vars {
     oc_www_path             = "${var.oc_www_path}"

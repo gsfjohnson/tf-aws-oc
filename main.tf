@@ -1,25 +1,25 @@
 ## AWS Tag configuration
 
-variable "owner_tag" {
+variable "aws_tag_owner" {
   description = "Instance owner"
 }
 
-variable "environment_tag" {
+variable "aws_tag_environment" {
   description = "Whether instance is production, test, development, etc"
   default = "Development"
 }
 
-variable "billing_tag" {
+variable "aws_tag_billing" {
   description = "Billing information for instance"
   default = "n/a"
 }
 
-variable "application_tag" {
+variable "aws_tag_application" {
   description = "Application tag"
   default = "opencart"
 }
 
-variable "customer_tag" {
+variable "aws_tag_customer" {
   description = "Customer"
   default = "n/a"
 }
@@ -188,11 +188,11 @@ resource "aws_spot_instance_request" "opencart" {
 
   tags {
     Name = "sir-${var.oc_cluster}-tf-oc"
-    Owner = "${var.owner_tag}"
-    Application = "${var.application_tag}"
-    Billing = "${var.billing_tag}"
-    Environment = "${var.environment_tag}"
-    Customer = "${var.customer_tag}"
+    Owner = "${var.aws_tag_owner}"
+    Application = "${var.aws_tag_application}"
+    Billing = "${var.aws_tag_billing}"
+    Environment = "${var.aws_tag_environment}"
+    Customer = "${var.aws_tag_customer}"
   }
 
   lifecycle {
